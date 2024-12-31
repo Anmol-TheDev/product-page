@@ -1,0 +1,59 @@
+---
+const products = [
+  { 
+    id: 1, 
+    title: 'Lint Remover',
+    description: 'Say goodbye to lint, fuzz, and pet hair with our premium Lint Remover! Designed to keep your fabrics looking fresh and new, this must-have tool is perfect for removing unwanted debris from clothes, upholstery, and more.',
+    img: "https://utfs.io/f/idJvlWmfYQcbUIjEOlyGwQSTaI3sVgNlCjknf4GM5AEFUBxK",
+    price: "Out of stock "
+  },
+  { 
+    id: 2, 
+    title: 'Door Guard',
+    description: 'Keep your home cozy and energy-efficient with our high-quality Door Draft Stopper. Designed to block out drafts, dust, noise, and insects, this must-have accessory fits snugly under your door to create a perfect seal.',
+    img: "https://utfs.io/f/idJvlWmfYQcb2naMkQPBUGjIYghpi1kyzrVf7WASRMo0xN8F",
+    price: "119 ₹"
+  },
+  { 
+    id: 3, 
+    title: "Heavy-Duty Adhesive Wall Hooks",
+    description: 'Simplify your organization with these durable adhesive wall hooks. Designed for strength and functionality, these hooks are perfect for hanging a variety of items in your home, office, or kitchen.',
+    img: "https://utfs.io/f/idJvlWmfYQcbkwoUgoWPgz41tNRjMiwnGCOXTJlhxSbqA3sm",
+    price: "99  ₹"
+  },
+];
+---
+
+<div class="min-h-screen bg-gradient-to-b from-gray-600 to-gray-900 p-4 sm:p-8">
+  <div class="max-w-7xl mx-auto">
+    {products.map((product, index) => (
+      <div class="grid grid-cols-12 gap-4 sm:gap-8 mb-24 sm:mb-20 relative">
+        {/* Image Section */}
+        <div class={`col-span-12 sm:col-span-5 ${
+          index % 2 === 0 ? 'sm:col-start-1' : 'sm:col-start-7'
+        } flex items-center`}>
+          <div class="aspect-square rounded-lg  border-white/20 overflow-hidden w-full max-w-sm mx-auto sm:max-w-none">
+            <img 
+              class="w-full h-full object-cover rounded-2xl transition-transform duration-300 hover:scale-105" 
+              src={product.img} 
+              alt={product.title}
+            />
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div class={`col-span-12 sm:absolute ${
+          index % 2 === 0 ? 'sm:right-0' : 'sm:left-0'
+        } sm:bottom-40 p-4 sm:p-0 sm:w-[500px] w-full bg-gray-800/50 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded-lg sm:rounded-none mt-4 sm:mt-0`}>
+          <div class="flex flex-col justify-center font-semibold">
+            <h2 class="text-2xl sm:text-3xl font-light text-white mb-2 sm:mb-4">{product.title}</h2>
+            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">{product.description}</p>
+            <button class="mt-4 sm:mt-6 px-4 sm:px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors duration-300 w-fit">
+              {product.price}
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,40 @@
+---
+import InfiniteCarousel from '../components/InfiniteCarousel.astro';
+import Cards from '../components/Cards.astro'
+---
+
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+</script>
+
+<div class="bg-gradient-to-b from-gray-900 to-gray-600 h-[100dvh] relative">
+  <img
+    src="logo.png"
+    alt="logo"
+    class="w-16 sm:w-36 absolute top-0 left-0"
+  />
+  <div class="h-[50dvh] flex justify-center items-center ">
+    <div class=" text-white flex flex-col items-center gap-8 mt-[10dvh]">
+      <div>
+        <h1 class=" sm:text-6xl md:text-4xl lg:text-6xl text-xl text-center">
+          Your EveryDay Home Item <font class="font-extrabold text-gray-400" face="Arial"
+            >HERE</font
+          >
+        </h1>
+      </div>
+      <p class="text-base text-white w-[90%] sm:w-[70%] text-center font-thin ">
+        Explore a wide range of everyday home essentials designed for
+        convenience and style. Pick your favorite products at affordable prices
+        to enhance your living space.
+      </p>
+      <h1 class=" text-white text-center sm:text-6xl font-bold text-4xl md:text-4xl lg:text-6xl sticky top-[10vh]">
+        Woyota
+      </h1>
+    </div>
+  </div>
+  <InfiniteCarousel/>
+  <Cards/>
+</div>

@@ -1,0 +1,86 @@
+---
+
+const imageUrls = [
+"https://utfs.io/f/idJvlWmfYQcb2naMkQPBUGjIYghpi1kyzrVf7WASRMo0xN8F",
+"https://utfs.io/f/idJvlWmfYQcbUIjEOlyGwQSTaI3sVgNlCjknf4GM5AEFUBxK",
+"https://utfs.io/f/idJvlWmfYQcb2naMkQPBUGjIYghpi1kyzrVf7WASRMo0xN8F",
+"https://utfs.io/f/idJvlWmfYQcbWJBla9XR2JDz18Tyjahbg4lAdMwLGOPiFesV",
+"https://utfs.io/f/idJvlWmfYQcbuXrm3zkl7Rnq2fHtFrT534KguBVLSIbxkjJ6",
+"https://utfs.io/f/idJvlWmfYQcbxJbuyEBZzM38Em1XOW0larHbNDhpT7tBVfxu",
+"https://utfs.io/f/idJvlWmfYQcbbNanJmS72Izj6GhR71kvQTM5H3SUAJueaWYc",
+"https://utfs.io/f/idJvlWmfYQcbMUPerlaTBq61eJP5jk0iaCnYVN9sxtFv4uwl",
+"https://utfs.io/f/idJvlWmfYQcb0Rpb7OcHIirQAR7vaE94JbKuylzqnpM1PYXF",
+"https://utfs.io/f/idJvlWmfYQcbkwoUgoWPgz41tNRjMiwnGCOXTJlhxSbqA3sm",
+"https://utfs.io/f/idJvlWmfYQcbqUXyuK6dfrQskXZ5OSWYNojycuh9mvUnPiE8",
+];
+---
+<script>
+  import { gsap } from 'gsap';
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const slideWidth = slides[0].offsetWidth;
+
+    // Clone slides for infinite effect
+    slides.forEach((slide) => {
+      const clone = slide.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+
+    // Initialize GSAP timeline
+    const tl = gsap.timeline({
+      repeat: -1,
+      defaults: { ease: "none" }
+    });
+
+    // Create infinite animation
+    function createCarouselAnimation() {
+      const totalWidth = slideWidth * slides.length;
+
+      // Clear existing animation
+      tl.clear();
+
+      // Smooth scrolling animation
+      tl.to(carousel, {
+        x: -totalWidth,
+        duration: slides.length * 2.5,
+        ease: "none",
+        onComplete: () => {
+          gsap.set(carousel, { x: 0 });
+        }
+      });
+    }
+
+    createCarouselAnimation();
+
+    // Hover effects
+    carousel.addEventListener('mouseenter', () => {
+      tl.timeScale(0.1);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      tl.timeScale(1);
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      tl.kill();
+      createCarouselAnimation();
+    });
+  });
+</script>
+
+<div class="carousel-wrapper sm:perspective-distant perspective-midrange mt-10">
+  <div class="carousel-container overflow-hidden">
+    <div class="carousel-track flex gap-4 p-4 ">
+      {imageUrls.map((e,i)=>(
+        <div class="carousel-slide shrink-0 sm:w-72 w-56 ">
+        <img class="w-full sm:h-80 h-64 object-cover rounded-lg shadow-lg brightness-75  transition-transform hover:brightness-100 sm:hover:scale-105" src={e} alt={`img${i}`}>
+      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
