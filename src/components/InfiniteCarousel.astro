@@ -1,18 +1,18 @@
 ---
-
 const imageUrls = [
-"src/images/img1.webp",
-"src/images/img2.webp",
-"src/images/img3.webp",
-"src/images/img4.webp",
-"src/images/img5.webp",
-"src/images/img6.webp",
-"src/images/img7.webp",
-"src/images/img8.webp",
-"src/images/img9.webp",
-"src/images/img10.webp",
-"src/images/img11.webp",
+"public/images/img1.webp",
+"public/images/img2.webp",
+"public/images/img3.webp",
+"public/images/img4.webp",
+"public/images/img5.webp",
+"public/images/img6.webp",
+"public/images/img7.webp",
+"public/images/img8.webp",
+"public/images/img9.webp",
+"public/images/img10.webp",
+"public/images/img11.webp",
 ];
+
 ---
 <script>
   import { gsap } from 'gsap';
@@ -77,7 +77,7 @@ const imageUrls = [
     <div class="carousel-track flex gap-4 p-4 ">
       {imageUrls.map((e,i)=>(
         <div class="carousel-slide shrink-0 sm:w-72 w-56 ">
-        <img class="w-full sm:h-80 h-64 object-cover rounded-lg shadow-lg brightness-75  transition-transform hover:brightness-100 sm:hover:scale-105" src={e} alt={`img${i}`}>
+            <img class="w-full sm:h-80 h-64 object-cover rounded-lg shadow-lg brightness-75  transition-transform hover:brightness-100 sm:hover:scale-105" src={e} alt={`img${i}`}>
       </div>
       ))}
     </div>
