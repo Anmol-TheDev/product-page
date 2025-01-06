@@ -1,16 +1,16 @@
 ---
 const imageUrls = [
-"public/images/img1.webp",
-"public/images/img2.webp",
-"public/images/img3.webp",
-"public/images/img4.webp",
-"public/images/img5.webp",
-"public/images/img6.webp",
-"public/images/img7.webp",
-"public/images/img8.webp",
-"public/images/img9.webp",
-"public/images/img10.webp",
-"public/images/img11.webp",
+"https://utfs.io/f/idJvlWmfYQcbkwoUgoWPgz41tNRjMiwnGCOXTJlhxSbqA3sm",
+"https://utfs.io/f/idJvlWmfYQcbUIjEOlyGwQSTaI3sVgNlCjknf4GM5AEFUBxK",
+"https://utfs.io/f/idJvlWmfYQcbVoo6fdLqTB6HxNdV3O10ck4tabMEKLWhzj57",
+"https://utfs.io/f/idJvlWmfYQcbWJBla9XR2JDz18Tyjahbg4lAdMwLGOPiFesV",
+"https://utfs.io/f/idJvlWmfYQcbuXrm3zkl7Rnq2fHtFrT534KguBVLSIbxkjJ6",
+"https://utfs.io/f/idJvlWmfYQcbxJbuyEBZzM38Em1XOW0larHbNDhpT7tBVfxu",
+"https://utfs.io/f/idJvlWmfYQcbbNanJmS72Izj6GhR71kvQTM5H3SUAJueaWYc",
+"https://utfs.io/f/idJvlWmfYQcbMUPerlaTBq61eJP5jk0iaCnYVN9sxtFv4uwl",
+"https://utfs.io/f/idJvlWmfYQcb0Rpb7OcHIirQAR7vaE94JbKuylzqnpM1PYXF",
+"https://utfs.io/f/idJvlWmfYQcbkwoUgoWPgz41tNRjMiwnGCOXTJlhxSbqA3sm",
+"https://utfs.io/f/idJvlWmfYQcbqUXyuK6dfrQskXZ5OSWYNojycuh9mvUnPiE8",
 ];
 
 ---
@@ -26,7 +26,7 @@ const imageUrls = [
     // Clone slides for infinite effect
     slides.forEach((slide) => {
       const clone = slide.cloneNode(true);
-      carousel.appendChild(clone);
+      carousel?.appendChild(clone);
     });
 
     // Initialize GSAP timeline
@@ -56,11 +56,11 @@ const imageUrls = [
     createCarouselAnimation();
 
     // Hover effects
-    carousel.addEventListener('mouseenter', () => {
+    carousel?.addEventListener('mouseenter', () => {
       tl.timeScale(0.1);
     });
 
-    carousel.addEventListener('mouseleave', () => {
+    carousel?.addEventListener('mouseleave', () => {
       tl.timeScale(1);
     });
 
